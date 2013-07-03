@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Exercises: Objects with Methods</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link href="http://twitter.github.com/bootstrap/assets/css/bootstrap.css" rel="stylesheet">
+  </head>
+ <body>
+<div class="container">
+<h2>Exercises: Objects with Methods</h2>
+
+
+<h3 class="page-header">The Cat</h3>
+
+<p><em>Write yourself a virtual cat - animals with a CLI are so much nicer than ones with fur.</em></p>
+
+<ul>
+  <li>Create an object that represents a cat. It should have properties for <code>tiredness</code>, <code>hunger</code>, <code>lonliness</code> and <code>happiness</code>
+  <li>Next, write methods that increase and decrease those properties (there's an example in the slides). Call them something that actually represents what would increase or decrease these things, like "feed", "sleep", or "pet".</li>
+  <li>Last, write a method that prints out the cat's status in each area.</li>
+  <li>Bonus: Make the functions take arguments that increase or decrease arbitrary amounts</li>
+  <li>Bonus: Make the functions as arbitrary as cats are - sometimes make it so the cat doesn't <em>want</em> to be petted.</li>
+</ul>
+
+ <button  onclick="showSolution(1)" class="btn">See Solution</button>
+ <br><br>
+<pre id="solution1" style="display:none;">
+var cat = {
+  tiredness: 0,
+  hunger: 0,
+  lonliness: 0,
+  happiness: 0,
+  play: function() {
+    this.hunger += 5;
+    this.hunger += 5;
+    this.happiness += 20;
+  },
+  eat: function() {
+    this.hunger -= 5;
+    this.happiness += 5;
+  },
+  pet: function() {
+    this.lonliness -= 5;
+    this.tiredness += 5
+  },
+  sleep: function {
+    this.tiredness -= 5;
+  }
+}
+</pre>
+
+<h3 class="page-header">The Reading List</h3>
+
+<p><em>An object-oriented book-list!</em></p>
+ <ul>
+  <li>Create a class through the constructor invocation pattern. <code> BookList = function() {} </code>
+    <ul>
+      <li>BookLists should have the following properties:</li>
+      <li>Number of books marked as read</li>
+      <li>Number of books marked not read yet</li>
+      <li>Next book to read(book object)</li>
+      <li>Current book being read (book object)</li>
+      <li>Last book read(book object)</li>
+      <li>An array of all the Books</li>
+    </ul>
+  </li>
+  <li>Create another class called Book. <code>Book = function() {}</code>
+    <ul>
+      <li>Each book should have several properties:</li>
+      <li>Title, Genre, Author</li>
+      <li>Read (true or false)</li>
+      <li>Read date, can be blank, otherwise needs to be a JS Date() object</li>
+    </ul>
+  </li>
+  <li>Every Booklist should have a few methods: 
+    <ul>
+      <li>.add(book) - should add a book to the books list.</li>
+      <li>.finishCurrentBook()
+      <ul>
+        <li>Should mark the book that is currently being read as read</li>
+        <li>Give it a read date of new Date(Date.now())</li>
+        <li>Change the last book read to be the book that just got finished</li>
+        <li>Change the current book to be the next book to be read</li>
+        <li>Change the next book to be read property to be the first unread book you find in the list of books</li>
+      </ul>
+    </ul>
+    <li>Booklists and Books might need more methods than that. Try to think of more that might be useful.</li>
+ </ul>
+ <button  onclick="showSolution(2)" class="btn">See Solution</button>
+ <br><br>
+  <pre id="solution2" style="display:none;">
+    
+  </pre>
+  <script>
+
+function showSolution(num) {
+  if (confirm('You surrrrre?')) {
+    document.getElementById('solution' + num).style.display = 'block';
+  }
+}
+  </script>
+  </body>
+</html>
