@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>Exercises: Objects</title>
+    <title>Exercises: Objects with Methods</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
@@ -10,114 +10,90 @@
   </head>
  <body>
 <div class="container">
-<h2>Exercises: Objects</h2>
+<h2>Exercises: Objects with Methods</h2>
 
 
-<h3 class="page-header">The Recipe Card</h3>
+<h3 class="page-header">The Cat</h3>
 
-<p><em>Never forget another recipe!</em></p>
+<p><em>Write yourself a virtual cat - animals with a CLI are so much nicer than ones with fur.</em></p>
 
 <ul>
- <li>Create an object to hold information on your favorite recipe. It should have properties for <code>title</code> (a string), <code>servings</code> (a number), and <code>ingredients</code> (an array of strings).
- <li>On separate lines (one <code>console.log</code> statement for each), log the recipe information so it looks like:
-  <ul class="unstyled">
-   <li>Mole
-   <li>Serves: 2
-   <li>Ingredients:
-   <li>cinnamon
-   <li>cumin
-   <li>cocoa
-  </ul>
+  <li>Create an object that represents a cat. It should have properties for <code>tiredness</code>, <code>hunger</code>, <code>lonliness</code> and <code>happiness</code>
+  <li>Next, write methods that increase and decrease those properties (there's an example in the slides). Call them something that actually represents what would increase or decrease these things, like "feed", "sleep", or "pet".</li>
+  <li>Last, write a method that prints out the cat's status in each area.</li>
+  <li>Bonus: Make the functions take arguments that increase or decrease arbitrary amounts</li>
+  <li>Bonus: Make the functions as arbitrary as cats are - sometimes make it so the cat doesn't <em>want</em> to be petted.</li>
 </ul>
+
  <button  onclick="showSolution(1)" class="btn">See Solution</button>
  <br><br>
 <pre id="solution1" style="display:none;">
- var recipe = {
-    'title': 'Mole',
-    'servings': 2,
-    'ingredients': ['cumin', 'cinnamon', 'cocoa']
-};
-
-console.log(recipe.title);
-console.log('Servings: ' + recipe.servings);
-console.log('Ingredients:');
-for (var i = 0; i &lt; recipe.ingredients.length; i++) {
-    console.log(recipe.ingredients[i]);
+var cat = {
+  tiredness: 0,
+  hunger: 0,
+  lonliness: 0,
+  happiness: 0,
+  play: function() {
+    this.hunger += 5;
+    this.hunger += 5;
+    this.happiness += 20;
+  },
+  eat: function() {
+    this.hunger -= 5;
+    this.happiness += 5;
+  },
+  pet: function() {
+    this.lonliness -= 5;
+    this.tiredness += 5
+  },
+  sleep: function {
+    this.tiredness -= 5;
+  }
 }
 </pre>
 
- <h3 class="page-header">The Reading List</h3>
+<h3 class="page-header">The Reading List</h3>
 
-<p><em>Keep track of which books you read and which books you want to read!</em></p>
+<p><em>An object-oriented book-list!</em></p>
  <ul>
-  <li>Create an array of objects, where each object describes a book and has properties for
-  the <code>title</code> (a string), <code>author</code> (a string), and <code>alreadyRead</code> (a boolean indicating if you read it yet).
-  <li>Iterate through the array of books. For each book, log the book title and book author like so: "The Hobbit by J.R.R. Tolkien".
-  <li>Now use an if/else statement to change the output depending on whether you read it yet or not. If you read it, log a string like 'You already read "The Hobbit" by J.R.R. Tolkien', and if not, log a string like 'You still need to read "The Lord of the Rings" by J.R.R. Tolkien.'
+  <li>Create a class through the constructor invocation pattern. <code> BookList = function() {} </code>
+    <ul>
+      <li>BookLists should have the following properties:</li>
+      <li>Number of books marked as read</li>
+      <li>Number of books marked not read yet</li>
+      <li>Next book to read(book object)</li>
+      <li>Current book being read (book object)</li>
+      <li>Last book read(book object)</li>
+      <li>An array of all the Books</li>
+    </ul>
+  </li>
+  <li>Create another class called Book. <code>Book = function() {}</code>
+    <ul>
+      <li>Each book should have several properties:</li>
+      <li>Title, Genre, Author</li>
+      <li>Read (true or false)</li>
+      <li>Read date, can be blank, otherwise needs to be a JS Date() object</li>
+    </ul>
+  </li>
+  <li>Every Booklist should have a few methods: 
+    <ul>
+      <li>.add(book) - should add a book to the books list.</li>
+      <li>.finishCurrentBook()
+      <ul>
+        <li>Should mark the book that is currently being read as read</li>
+        <li>Give it a read date of new Date(Date.now())</li>
+        <li>Change the last book read to be the book that just got finished</li>
+        <li>Change the current book to be the next book to be read</li>
+        <li>Change the next book to be read property to be the first unread book you find in the list of books</li>
+      </ul>
+    </ul>
+    <li>Booklists and Books might need more methods than that. Try to think of more that might be useful.</li>
  </ul>
  <button  onclick="showSolution(2)" class="btn">See Solution</button>
  <br><br>
- <pre id="solution2" style="display:none;">
-var books = [
-  {title: 'The Design of EveryDay Things',
-   author: 'Don Norman',
-   alreadyRead: false
-  },
-  {title: 'The Most Human Human',
-  author: 'Brian Christian',
-  alreadyRead: true
-  }];
-
-for (var i = 0; i &lt; books.length; i++) {
-  var book = books[i];
-  var bookInfo = book.title + '" by ' + book.author;
-  if (book.alreadyRead) {
-    console.log('You already read "' + bookInfo);
-  } else {
-    console.log('You still need to read "' + bookInfo);
-  }
-}</pre>
-
-<h3 class="page-header">The Movie Database</h3>
-<p><em>It's like IMDB, but much much smaller!</em></p>
-<ul>
- <li>Create an object to store the following information about your favorite movie: <code>title</code> (a string),
- <code>duration</code> (a number), and <code>stars</code> (an array of strings).
- <li>Create a function to print out the movie information like so: "Puff the Magic Dragon lasts for 30 minutes. Stars: Puff, Jackie, Living Sneezes."
-</ul>
-<button class="btn" onclick="showSolution(3)">See Solution</button>
-<br><br>
-<pre id="solution3" style="display:none;">
-var myFavMovie = {
-    title: 'Puff the Magic Dragon',
-    duration: 30,
-    stars: ['Puff', 'Jackie', 'Living Sneezes']
-};
-
-function printMovie(movie) {
-    console.log(movie.title + ' lasts for ' + movie.duration + ' minutes');
-    var starsString = 'Stars: ';
-    for (var i = 0; i &lt; movie.stars.length; i++) {
-        starsString += movie.stars[i];
-        if (i != movie.stars.length -1) {
-            starsString += ', ';
-        }
-    }
-    console.log(starsString);
-}
-
-// Or...
-function printMovie(movie) {
-    console.log(movie.title + ' lasts for ' + movie.duration + ' minutes');
-    console.log('It stars ' + movie.stars.join(', '));
-}
-printMovie(myFavMovie);
-</pre>
-
- </div>
-
-  <br><br><br><br><br>
-
+  <pre id="solution2" style="display:none;">
+    
+  </pre>
   <script>
 
 function showSolution(num) {

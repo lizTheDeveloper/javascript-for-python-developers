@@ -42,7 +42,7 @@ $(document).ready(function(){
     <div class="slide normal"> 
      <header><h1>Objects</h1></header> 
      <section class="content"> 
-     <p>Objects are a data type that let us store a collection of properties and methods.</p>
+     <p>Objects are a data type that let us store a collection of properties and methods. They're essentially dictionaries, or hash tables.</p>
 
 <pre style="border:3px dotted black;" class="prettyprint">
 var objectName = { 
@@ -83,18 +83,18 @@ Just like objects in the real world, Javascript objects have attributes - called
     <div class="slide normal"> 
      <header><h1>Objects Access</h1></header> 
      <section class="content"> 
-     <p>Access properties using "dot notation":</p>
-
+     <p>The notable difference between JS "objects" and Python "Dictionaries" is that you can use "dot notation" as well as "bracket notation". They're functionally the same.</p>
+     <p>Dot notation:</p>
 <pre class="prettyprint">
 var aboutMe = {
-  hometown: "Pasadena, CA",
+  hometown: "Dallas, TX",
   hair: "brown"
 }; 
 
 var myHometown = aboutMe.hometown;
 </pre>
 
-<p>Or using "bracket notation" (like arrays):</p>
+<p>Bracket notation (like arrays):</p>
 <pre class="prettyprint">
 var myHair = aboutMe["hair"];
 </pre>
@@ -113,26 +113,26 @@ var myGender = aboutMe["gender"];
     
     
     <div class="slide normal"> 
-     <header><h1>Changing Objects</h1></header> 
-     <section class="content"> 
-     <p>Use dot or bracket notation with the assignment operator to change objects.</p>
-<p>Change existing properties:</p>
-<pre class="prettyprint">
+      <header><h1>Changing Objects</h1></header> 
+      <section class="content"> 
+        <p>Use dot or bracket notation with the assignment operator to change objects.</p>
+        <p>Change existing properties:</p>
+        <pre class="prettyprint">
 var aboutMe = {
-  hometown: "Pasadena, CA",
+  hometown: "Dallas, TX",
   hair: "brown"
 }; 
 aboutMe.hair = "blue";
-</pre>
-<p>Or add new properties:</p>
-<pre class="prettyprint">
+        </pre>
+        <p>Or add new properties:</p>
+        <pre class="prettyprint">
 aboutMe.gender = "female";
-</pre>
-<p>You can also delete properties:</p>
-<pre class="prettyprint">
+        </pre>
+        <p>You can also delete properties:</p>
+        <pre class="prettyprint">
 delete aboutMe.gender;
-</pre>
-     </section>
+        </pre>
+      </section>
     </div>
     
    
@@ -140,25 +140,25 @@ delete aboutMe.gender;
     
     
     <div class="slide normal"> 
-     <header><h1>Arrays of Objects</h1></header> 
-     <section class="content"> 
-     <p>Since arrays can hold any data type, they can also hold objects:</p>
-<pre class="prettyprint">
+      <header><h1>Arrays of Objects</h1></header> 
+      <section class="content"> 
+        <p>Since arrays can hold any data type, they can also hold objects:</p>
+        <pre class="prettyprint">
 var myCats = [
   {name: "Lizzie", 
-   age: 18},
+  age: 18},
   {name: "Daemon",
-   age: 1}
+  age: 1}
 ];
 
 for (var i = 0; i < myCats.length; i++) {
   var myCat = myCats[i];
   console.log(myCat.name + ' is ' + myCat.age + ' years old.');
 }
-</pre>
-     </section>
+        </pre>
+      </section>
     </div>
-    
+
    
     
     
@@ -185,19 +185,38 @@ describeCat(lizzieTheCat);
      </section>
     </div>
     
+    <div class="slide normal"> 
+      <header><h1>Objects are Passed By Reference</h1></header> 
+      <section class="content"> 
+        <p>Similar to how Python manages memory, when you pass an object to a function, you're working with the "real" object, not a copy.</p>
+
+        <pre class="prettyprint">
+var lizzieTheDeveloper = {
+  age: 26,
+  furColor: "brown",
+  skills: ["Python", "Teaching", "Being mean to Christian"],
+  birthday: {"month": 11, "day": 27, year: 1986}
+}
+
+function addSkill(developer, skill) {
+  developer.skills.push(skill)
+}
+
+addSkill(lizzieTheDeveloper, "JavaScript");
+        </pre>
+      </section>
+    </div>
    
     <div class="slide normal"> 
-     <h1 class="center"><a target="_blank" href="../exercises/objects.html">Exercise Time!</a></h1>
+     <h1 class="center"><a target="_blank" href="../exercises/objects-simple.html">Exercise Time!</a></h1>
     </div>
     
-    
-    
     <div class="slide normal"> 
-     <header><h1>Object methods</h1></header> 
-     <section class="content"> 
-     <p>Object properties can also be functions. Object functions are called "methods".</p>
+      <header><h1>Object methods</h1></header> 
+      <section class="content"> 
+        <p>Object properties can also be functions. Object functions are called "methods".</p>
 
-<pre class="prettyprint">
+        <pre class="prettyprint">
 var lizzieTheCat = {
   age: 18,
   furColor: 'grey',
@@ -213,77 +232,104 @@ var lizzieTheCat = {
     }
   }
 };
-</pre>
-<p>Call object methods using dot notation:</p>
-<pre class="prettyprint">
+        </pre>
+        <p>Call object methods using dot notation:</p>
+        <pre class="prettyprint">
 lizzieTheCat.meow();
 lizzieTheCat.eat('brown mushy stuff');
 lizzieTheCat.sleep(10);
-</pre>
-     </section>
+        </pre>
+      </section>
     </div>
     
-   
-    
-    
-    
-    <div class="slide normal"> 
-     <header><h1>Built-in Objects</h1></header> 
-     <section class="content"> 
-     <p>JS provides several built-in objects:</p>
+        <div class="slide normal"> 
+      <header><h1><code>this</code> and <code>self</code></h1></header> 
+      <section class="content"> 
+        <p>Remember <code>self</code>? It got passed in to every method in python, so we could modify the instance of the object. In JS, that thing is called "this".</p>
 
-<ul>
-  <li><code><a target="_blank" href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Array">Array</a></code>
-  <li><code><a target="_blank" href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Boolean">Boolean</a></code>
-  <li><code><a target="_blank" href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Number">Number</a></code>
-  <li><code><a target="_blank" href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/String">String</a></code>
-  <li><code><a target="_blank" href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/RegExp">RegExp</a></code>
-  <li><code><a target="_blank" href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Date">Date</a></code>
-  <li><code><a target="_blank" href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Math">Math</a></code>
-</ul>
-     </section>
+        <pre class="prettyprint">
+var lizzieTheCat = {
+  age: 18,
+  furColor: 'grey',
+  tirednessLevel: 20,
+  sleep: function(numMinutes) {
+    for (var i = 0; i < numMinutes; i++) {
+      console.log('z');
+      this.tirednessLevel--;
+    }
+  }
+};
+        </pre>
+        <p></p>
+        <pre class="prettyprint">
+lizzieTheCat.sleep(10);
+console.log(lizzieTheCat.tirednessLevel);
+        </pre>
+      </section>
     </div>
-    
-   
-    
-    
-   
-    
-    
-    
-    <div class="slide normal"> 
-     <header><h1>HTML Editors</h1></header> 
-     <section class="content"> 
-     <section class="content"> 
-     <p>Since HTML files are just text files, many programs can be used to create them. Some programs provide special assistance for handling HTML, like syntax-highlighting or autocompletion. 
-</p>
-<table style="font-size:120%; border: 1px solid black;" border="1" cellspacing="0">
- <thead>
-  <tr><th></th><th>Windows</th><th>Mac</th><th>Online</th></tr>
- </thead>
-  <tbody>
-  <tr><td>Free</td>
-        <td><a href="http://notepad-plus-plus.org/">Notepad++</a></td>
-       <td><a href="http://www.barebones.com/products/textwrangler/">TextWrangler</a>, <a href="http://smultron.sourceforge.net/">Smultron</a></td>
-       <td rowspan="2"> <a href="http://c9.io/">Cloud9 IDE</a>, <a href="http://jsbin.com/3/">JSBin</a></td>
-  </tr>
-  <tr><td>$$</td>
-       <td><a href="http://www.sublimetext.com/">SublimeText</a></td>, 
-       <td><a href="http://macromates.com/">TextMate</a>, <a href="http://www.panic.com/coda/">Coda</a>, <a href="http://macrabbit.com/espresso/">Espresso</a></td></tr>
-  </tbody>
-</table>
 
-<p>
-</p><center>
-<img style="height:200px" src="http://farm5.static.flickr.com/4096/4931311586_4f770d82e1.jpg">
-</center>
-<p></p>
-     </section>
+    <div class="slide normal"> 
+      <header><h1>Global context (<code>window</code>)</h1></header> 
+      <section class="content"> 
+      <p>In JS, <em>everything</em> has a context, and top-level things are considered "global." In the browser, the <code><a target="_blank" href="https://developer.mozilla.org/en/DOM/window">window</a></code> object is our global object, where everything goes by default.</p>
+
+      <pre>
+window.location.href;
+window.scrollTo(10, 50);
+window.name
+      </pre>
+
+      <p>The <code>window</code> object is the assumed global object on a page, so:
+      </p>
+      <pre class="prettyprint">
+window.alert("Hi!");
+      </pre>
+      <p>...is the same as:</p>
+      <pre class="prettyprint">
+alert("Hi");
+      </pre>
+      </section>
     </div>
-    
-   
-    
-    
+
+    <div class="slide normal"> 
+      <header><h1><code>new</code> and Classes</h1></header> 
+      <section class="content">
+        Classes are supported in a limited way by JS. By convention, they start with a capital letter, and are created like so:
+        <pre>
+var Cat = function(name,furColor) {
+  this.name = name;
+  this.furColor = furColor;
+}
+var tribbles = new Cat("Tribbles", "black");
+var jean_claws = new Cat("Jean Claws van Kitty", "tuxedo");
+var kunta_kittay = new Cat("Kunta Kittay", "striped"); //My parents named this one.
+        </pre>
+        Each variable is now a cat, but with different values. This is similar to how classes work in python.
+      </section>
+    </div>
+
+    <div class="slide normal"> 
+      <h1 class="center"><a target="_blank" href="../exercises/objects.html">Exercise Time!</a></h1>
+    </div>
+
+    <div class="slide normal"> 
+      <header><h1>Built-in Objects</h1></header> 
+      <section class="content"> 
+      <p>JS provides several built-in objects:</p>
+
+      <ul>
+        <li><code><a target="_blank" href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Array">Array</a></code></li>
+        <li><code><a target="_blank" href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Boolean">Boolean</a></code></li>
+        <li><code><a target="_blank" href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Number">Number</a></code></li>
+        <li><code><a target="_blank" href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/String">String</a></code></li>
+        <li><code><a target="_blank" href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/RegExp">RegExp</a></code></li>
+        <li><code><a target="_blank" href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Date">Date</a></code></li>
+        <li><code><a target="_blank" href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Math">Math</a></code></li>
+      </ul>
+      </section>
+    </div>
+
+
     
     <div class="slide normal"> 
      <header><h1>HTML &amp; CSS: Review</h1></header> 
