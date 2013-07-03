@@ -121,6 +121,7 @@ var cat = {
       this.add = function(book){
         this.bookShelf.push(book);
         //Put something here that takes a look at the book- and then determines if it needs to go into any of the other properties, like last book read, next book to read, or currently reading.
+        //it should also update the number of books marked as read.
       }
       this.finishCurrentBook = function(){
         //We're going to have to modify the state of this thing pretty heavily.
@@ -129,6 +130,7 @@ var cat = {
           this.lastBook = this.currentBook
           this.currentBook = this.nextBook
           // Now, we need to loop through and get the next book in the array that has read marked as "false"
+          //we also need to go through and update the number of books marked as read, and as not read.
         } else {
           //error handling - put something here that says "you don't have a current book!"
         }
