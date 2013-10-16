@@ -38,7 +38,7 @@ $(document).ready(function(){
      <section class="content">
         <p>For this group of exercises, you'll need your laptop and a browser.</p>
         <p>Open Google Chrome (not Safari or Firefox) and then open <a href="http://repl.it">http://repl.it</a></p>
-        <p>Also open these slides ##TODO ADD SLIDES LINK</p>
+        <p>Also open these slides : icyfenix.github.io/javascript-for-python-developers</p>
      </section>
     </div> 
     
@@ -301,11 +301,12 @@ to say like this gratuitously long description.
         </section>
     </div>
 
+<!--
 
     <div class="slide normal">
         <h1 class="center"><a target="_blank" href="../exercises/variables.html">Exercise Time!</a></h1>
     </div>
-    
+-->
 
     <div class="slide normal"> 
      <header><h1>Functions</h1></header> 
@@ -315,7 +316,7 @@ to say like this gratuitously long description.
 <p>First declare the function:</p>
 <pre>
 function sayMyName() {
-  console.log('Hi Pamela!');
+  console.log('Hi Liz!');
 }
 </pre>
 <p>Then call it (as many times as you want):</p>
@@ -382,16 +383,16 @@ function sum(num1, num2) {
     return result; // Anything after this line won't be executed
 }
 
-var sum = addNumbers(5, 2);
+var total = sum(5, 2);
             </pre>
             <p>You can use function calls in expressions:</p>
             <pre>
-var biggerSum = addNumbers(2, 5) + addNumbers(3, 2);
+var biggerSum = sum(2, 5) + sum(3, 2);
             </pre>
 
             <p>You can even call functions inside function calls:</p>
             <pre>
-var hugeSum = addNumbers(addNumbers(5, 2), addNumbers(3, 7));
+var hugeSum = sum(sum(5, 2), sum(3, 7));
             </pre>
 
             <p class="speaker-notes" style="display:none;">
@@ -408,22 +409,22 @@ var hugeSum = addNumbers(addNumbers(5, 2), addNumbers(3, 7));
 
             <p>A variable with "local" scope:</p>
             <pre>
-function addNumbers(num1, num2) {
+function sum(num1, num2) {
     var localResult = num1 + num2;
     console.log("The local result is: " + localResult);
 }
-addNumbers(5, 7);
+sum(5, 7);
 console.log(localResult);
             </pre>
 
             <p>A variable with "global" scope:</p>
             <pre>
 var globalResult;
-function addNumbers(num1, num2) {
+function sum(num1, num2) {
     globalResult = num1 + num2;
     console.log("The global result is: " + globalResult);
 }
-addNumbers(5, 7);
+sum(5, 7);
 console.log(globalResult);
             </pre>
 
@@ -440,22 +441,22 @@ console.log(globalResult);
             <p>A properly scoped variable:</p>
             <pre>
 
-function addNumbers(num1, num2) {
-var localResult = num1 + num2;
-console.log("The local result is: " + localResult);
+function sum(num1, num2) {
+    var localResult = num1 + num2;
+    console.log("The local result is: " + localResult);
 }
-addNumbers(5, 7);
+sum(5, 7);
 console.log(localResult);
 
             </pre>
  
             <p>An improperly scoped variable:</p>
             <pre>
-function addNumbers(num1, num2) {
-localResult = num1 + num2;
-console.log("The local result is: " + localResult);
+function sum(num1, num2) {
+    localResult = num1 + num2;
+    console.log("The local result is: " + localResult);
 }
-addNumbers(5, 7);
+sum(5, 7);
 console.log(localResult); //our function is leaky!
             </pre>
 
@@ -495,11 +496,11 @@ function addNumbers(num1, num2) {
             <a href="https://developer.mozilla.org/en/JavaScript/Guide">Mozilla Developer Network</a>
         </section>
     </div>
-    
+<!--
     <div class="slide normal"> 
      <h1 class="center"><a target="_blank" href="../exercises/functions.html">Exercise Time!</a></h1>
     </div>
-    
+-->
    
     
     
