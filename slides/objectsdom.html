@@ -54,29 +54,17 @@ var objectName = {
 
 <pre class="prettyprint">
 var aboutMe = {
-<<<<<<< HEAD
   hometown: "Dallas, TX",
-=======
-  hometown: "Pasadena, CA",
->>>>>>> 1e339e08c6657aed960b5327a7e19e9842aa6dcf
   hair: "brown"
 }; 
 </pre>
 
 <pre class="prettyprint">
-<<<<<<< HEAD
 var meekoTheCat = {
   age: 18,
   furColor: "Black",
   likes: ["catnip", "milk"],
   birthday: {"month": 7, "day": 17, year: 2009}
-=======
-var lizzieTheCat = {
-  age: 18,
-  furColor: "grey",
-  likes: ["catnip", "milk"],
-  birthday: {"month": 7, "day": 17, year: 1994}
->>>>>>> 1e339e08c6657aed960b5327a7e19e9842aa6dcf
 };
 </pre>
 
@@ -157,17 +145,10 @@ delete aboutMe.gender;
         <p>Since arrays can hold any data type, they can also hold objects:</p>
         <pre class="prettyprint">
 var myCats = [
-<<<<<<< HEAD
   {name: "Meeko", 
   age: 2},
   {name: "Jean Clawes",
   age: 12}
-=======
-  {name: "Lizzie", 
-  age: 18},
-  {name: "Daemon",
-  age: 1}
->>>>>>> 1e339e08c6657aed960b5327a7e19e9842aa6dcf
 ];
 
 for (var i = 0; i < myCats.length; i++) {
@@ -188,31 +169,18 @@ for (var i = 0; i < myCats.length; i++) {
      <p>Just like other data types, objects can be passed into functions:</p>
 
 <pre class="prettyprint">
-<<<<<<< HEAD
 var meekoTheCat = {
   age: 18,
   furColor: "Black",
   likes: ["catnip", "milk"],
   birthday: {"month": 7, "day": 17, year: 2009}
 };
-=======
-var lizzieTheCat = {
-  age: 18,
-  furColor: "grey",
-  likes: ["catnip", "milk"],
-  birthday: {"month": 7, "day": 17, year: 1994}
-}
->>>>>>> 1e339e08c6657aed960b5327a7e19e9842aa6dcf
 
 function describeCat(cat) {
   console.log("This cat is " + cat.age + " years old with " + cat.furColor + " fur.");
 }
 
-<<<<<<< HEAD
 describeCat(meekoTheCat);
-=======
-describeCat(lizzieTheCat);
->>>>>>> 1e339e08c6657aed960b5327a7e19e9842aa6dcf
 </pre>
      </section>
     </div>
@@ -223,11 +191,7 @@ describeCat(lizzieTheCat);
         <p>Similar to how Python manages memory, when you pass an object to a function, you're working with the "real" object, not a copy.</p>
 
         <pre class="prettyprint">
-<<<<<<< HEAD
 var lizTheDeveloper = {
-=======
-var lizzieTheDeveloper = {
->>>>>>> 1e339e08c6657aed960b5327a7e19e9842aa6dcf
   age: 26,
   furColor: "brown",
   skills: ["Python", "Teaching", "Being mean to Christian"],
@@ -238,11 +202,7 @@ function addSkill(developer, skill) {
   developer.skills.push(skill)
 }
 
-<<<<<<< HEAD
 addSkill(lizTheDeveloper, "JavaScript");
-=======
-addSkill(lizzieTheDeveloper, "JavaScript");
->>>>>>> 1e339e08c6657aed960b5327a7e19e9842aa6dcf
         </pre>
       </section>
     </div>
@@ -257,24 +217,14 @@ addSkill(lizzieTheDeveloper, "JavaScript");
         <p>Object properties can also be functions. Object functions are called "methods".</p>
 
         <pre class="prettyprint">
-<<<<<<< HEAD
 var meekoTheCat = {
   age: 2,
   furColor: 'Black',
-=======
-var lizzieTheCat = {
-  age: 18,
-  furColor: 'grey',
->>>>>>> 1e339e08c6657aed960b5327a7e19e9842aa6dcf
   meow: function() {
     console.log('meowww');
   },
   eat: function(food) {
-<<<<<<< HEAD
     console.log('Pfft, I hate ' + food);  
-=======
-    console.log('Yum, I love ' + food);  
->>>>>>> 1e339e08c6657aed960b5327a7e19e9842aa6dcf
   },
   sleep: function(numMinutes) {
     for (var i = 0; i < numMinutes; i++) {
@@ -285,15 +235,9 @@ var lizzieTheCat = {
         </pre>
         <p>Call object methods using dot notation:</p>
         <pre class="prettyprint">
-<<<<<<< HEAD
 meekoTheCat.meow();
 meekoTheCat.eat('brown mushy stuff');
 meekoTheCat.sleep(10);
-=======
-lizzieTheCat.meow();
-lizzieTheCat.eat('brown mushy stuff');
-lizzieTheCat.sleep(10);
->>>>>>> 1e339e08c6657aed960b5327a7e19e9842aa6dcf
         </pre>
       </section>
     </div>
