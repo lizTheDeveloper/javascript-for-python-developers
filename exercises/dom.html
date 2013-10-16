@@ -6,16 +6,120 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
+<<<<<<< HEAD
     <link href="http://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet">
   </head>
  <body>
 <div class="container">
 <h2>Exercise: The DOM</h2>
+=======
+    <link href="http://twitter.github.com/bootstrap/assets/css/bootstrap.css" rel="stylesheet">
+  </head>
+ <body>
+<div class="container">
+<h2>Exercises: The DOM</h2>
+
+
+<h3 class="page-header">The Logo Hijack</h3>
+
+<p><em>No homepage is safe from the logo bandit!</em></p>
+
+<ul>
+ <li>Open up <a href="http://www.google.com">www.google.com</a> in Chrome or Firefox,
+ and open up the console.
+ <li>Find the Google logo and store it in a variable.
+ <li>Modify the source of the logo IMG so that it's a Yahoo logo instead.
+ <li>Find the Google search button and store it in a variable.
+ <li>Modify the text of the button so that it says "Yahooo!" instead.
+ </ul>
+ <button  onclick="showSolution(1)" class="btn">See Solution</button>
+ <br><br>
+<pre id="solution1" style="display:none;">
+var img = document.getElementById('hplogo');
+img.width = 400;
+img.src = 'http://www.logostage.com/logos/yahoo.GIF';
+var button = document.getElementById('gbqfba');
+button.innerHTML = 'Yahoooo!';
+</pre>
+
+ <h3 class="page-header">About Me</h3>
+
+<p><em>Cuz every webpage needs an "About" section.</em></p>
+ <ul>
+  <li>Start with this HTML and save it as "aboutme.html":
+  <pre>
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+ &lt;head&gt;
+  &lt;meta charset=&quot;utf-8&quot;/&gt;
+  &lt;title&gt;About Me&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;h1&gt;About Me&lt;/h1&gt;
+  
+  &lt;ul&gt;
+    &lt;li&gt;Nickname: &lt;span id=&quot;nickname&quot;&gt;&lt;/span&gt;
+    &lt;li&gt;Favorites:  &lt;span id=&quot;favorites&quot;&gt;&lt;/span&gt;
+    &lt;li&gt;Hometown: &lt;span id=&quot;hometown&quot;&gt;&lt;/span&gt;
+   &lt;/ul&gt;
+  
+ &lt;/body&gt;
+&lt;/html&gt;
+  </pre>
+  <li>Add a <code>script</code> tag to the bottom.
+  <li>Change the body style so it has a font-family of "Arial, sans-serif".
+  <li>Replace each of the spans (nickname, favorites, hometown) with your own information.
+  <li>Iterate through each li and change the class to "listitem". Add a <code>style</code>
+  tag that sets a rule for "listitem" to make the color red.
+  <li>Create a new <code>img</code> element and set its <code>src</code> attribute to
+  a picture of you. Append that element to the page.
+ </ul>
+ <button  onclick="showSolution(2)" class="btn">See Solution</button>
+ <br><br>
+ <pre id="solution2" style="display:none;">
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+ &lt;head&gt;
+  &lt;meta charset=&quot;utf-8&quot;/&gt;
+  &lt;title&gt;About Me&lt;/title&gt;
+  &lt;style&gt;
+    .listitem {
+      color: red;
+    }
+  &lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;h1&gt;About Me&lt;/h1&gt;
+  
+  &lt;ul&gt;
+    &lt;li&gt;Nickname: &lt;span id=&quot;nickname&quot;&gt;&lt;/span&gt;
+    &lt;li&gt;Favorites:  &lt;span id=&quot;favorites&quot;&gt;&lt;/span&gt;
+    &lt;li&gt;Hometown: &lt;span id=&quot;hometown&quot;&gt;&lt;/span&gt;
+   &lt;/ul&gt;
+  
+  &lt;script&gt;
+   document.body.style.fontFamily = 'Arial, sans-serif';
+   document.getElementById('nickname').innerHTML = 'Pamela Fox';
+   document.getElementById('favorites').innerHTML = '27';
+   document.getElementById('hometown').innerHTML = 'Pasadena, CA';
+   var items = document.getElementsByTagName('li');
+   for (var i = 0; i &lt; items.length; i++) {
+      items[i].className = 'listitem';
+   }
+    
+    var myPic = document.createElement('img');
+    myPic.src = 'http://gotocon.com/dl/jaoo_aus2008/photos/speakers/Pamela_Fox.jpg';
+    document.body.appendChild(myPic);
+  &lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</pre>
+>>>>>>> 1e339e08c6657aed960b5327a7e19e9842aa6dcf
 
 <h3 class="page-header">The Book List</h3>
 
 <p><em>Keep track of which books you read and which books you want to read!</em></p>
  <ul>
+<<<<<<< HEAD
   <li>Create a webpage with an <code>h1</code> of "My Book List".</li>
   <li>Add a script tag to the bottom of the page, where all your JS will go.</li>
   <li>Copy the javascript from the <a href="objects.html">previous exercise</a>.</li>
@@ -32,6 +136,17 @@
       <li>Display the current book you should be reading</li>
     </ul>
   </li>
+=======
+  <li>Create a webpage with an <code>h1</code> of "My Book List".
+  <li>Add a script tag to the bottom of the page, where all your JS will go.
+  <li>Copy the array of books from the <a href="objects.html">previous exercise</a>.
+  <li>Iterate through the array of books. For each book, create a <code>p</code>
+  element with the book title and author and append it to the page.
+  <li><b>Bonus</b>: Use a <code>ul</code> and <code>li</code> to display the books.
+  <li><b>Bonus</b>: add a property to each book with the URL of the book cover,
+  and add an <code>img</code> element for each book on the page.
+  <li><b>Bonus</b>: Change the style of the book depending on whether you have read it or not.
+>>>>>>> 1e339e08c6657aed960b5327a7e19e9842aa6dcf
  </ul>
  <button  onclick="showSolution(3)" class="btn">See Solution</button>
  <br><br>
