@@ -109,21 +109,22 @@ var cat = {
       }
       this.bookShelf = books || [];
 
-      if (this.bookShelf) {
-        //Loop
-          //Find the first book that doesn't have a "read" property set to true
-          //set this.currentBook = that book
-        //Loop
-          //Look through all the books - if they have a read property set to true, set that to the last book read. 
-          //Check every other book that has a read property set to true - if their readDate is later, set THAT book to be the latest read book.
-        //Loop
-          //Look through all books, the first book in the array that has a read property set to false should be the next book.
+      //check to see if we have books to process
+      if (this.bookShelf.length > 0) {
+      //Loop through all of the books in the "books" argument
+          //Use the .add function to handle adding books, so we keep counts updated.
+        
       } 
 
       this.add = function(book){
         this.bookShelf.push(book);
-        //Put something here that takes a look at the book- and then determines if it needs to go into any of the other properties, like last book read, next book to read, or currently reading.
-        //it should also update the number of books marked as read.
+        //If a book has been read:
+          //See if we have a .lastBook property - set if we don't.
+          //Update the count of read books
+        //If a book hasn't been read:
+          //See if we have a .currentBook property. Set if we don't.
+          //See if we have a .nextBook property as well - if we didn't set the .currentBook property, set the .nextBook property.
+        //it should also update the number of books marked as read / unread
       }
       this.finishCurrentBook = function(){
         //We're going to have to modify the state of this thing pretty heavily.
